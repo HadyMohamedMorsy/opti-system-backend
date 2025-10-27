@@ -34,7 +34,7 @@ export class PartnersService
 
   // Get active partners data
   public async getActivePartners() {
-    const partners = await this.findAll({
+    const sections = await this.findAll({
       is_active: true,
       relations: {
         language: {
@@ -42,8 +42,8 @@ export class PartnersService
         },
       },
     });
-    if (partners && partners.data && partners.data.length > 0) {
-      return { content: [{ ...partners.data[0], language_id: partners.data[0].language.id }] };
+    if (sections && sections.data && sections.data.length > 0) {
+      return { content: sections.data.map(item => ({ ...item, language_id: item.language.id })) };
     }
     return { content: null };
   }

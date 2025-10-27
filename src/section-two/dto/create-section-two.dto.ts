@@ -16,6 +16,7 @@ export class HostingPlanDto {
   plan_name: string;
 
   @IsNumber()
+  @Type(() => Number)
   price: number;
 
   @IsString()

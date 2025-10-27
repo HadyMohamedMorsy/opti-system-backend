@@ -31,6 +31,7 @@ export class ReviewDto {
   name_reviewer: string;
 
   @IsNumber()
+  @Type(() => Number)
   @Min(1)
   @Max(5)
   count_rating: number;

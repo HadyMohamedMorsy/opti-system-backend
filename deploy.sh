@@ -1,11 +1,11 @@
 #!/bin/bash
 
 # Configuration
-SERVER="root@46.202.170.91"
-BACKEND_DIR="/var/www/azalove/backend"
+SERVER="root@72.60.92.164"
+BACKEND_DIR="/var/www/opti-system/landing-page/backend"
 TARGET_DIR="$BACKEND_DIR/dist"
 LOCAL_DIR="./dist"
-APP_NAME="azalove"
+APP_NAME="opti"
 
 echo "Starting backend deployment to $SERVER:$TARGET_DIR"
 

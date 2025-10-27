@@ -34,6 +34,7 @@ export class SectionOneContentDto {
 
   // Discount percentage
   @IsNumber()
+  @Type(() => Number)
   @IsOptional()
   discount_percentage?: number;
 
@@ -82,6 +83,7 @@ export class SectionOneUpdateContentDto {
 
   // Discount percentage
   @IsNumber()
+  @Type(() => Number)
   @IsOptional()
   discount_percentage?: number;
 
