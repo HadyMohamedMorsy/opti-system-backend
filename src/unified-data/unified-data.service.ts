@@ -74,7 +74,7 @@ export class UnifiedDataService {
           language_id: item.language_id || null,
         }));
       }
-      return { content: settingsData };
+      return settingsData;
     }
   }
 }
