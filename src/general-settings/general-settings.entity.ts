@@ -7,15 +7,38 @@ export class GeneralSettings extends BaseMemberEntity {
   @PrimaryGeneratedColumn()
   id: number;
 
-  @Column({ nullable: true })
-  name: string;
+  // Store Information
+  @Column({ name: "content", type: "json" })
+  content: Array<{
+    store_name: string;
+    maintenance_message: string;
+    store_address: string;
+    meta_title: string;
+    meta_favicon: string;
+    logo: string;
+    meta_description: string;
+    meta_keywords: string;
+    meta_author: string;
+    meta_robots: string;
+    meta_canonical: string;
+    meta_image: string;
+    meta_og_title: string;
+    meta_og_description: string;
+    meta_og_image: string;
+    meta_og_url: string;
+    meta_og_type: string;
+    meta_og_locale: string;
+    meta_og_site_name: string;
+    language_id: number;
+  }>;
 
   @Column({ nullable: true })
-  email: string;
+  store_email: string;
 
   @Column({ nullable: true })
-  phone: string;
+  store_phone: string;
 
+  // Google Tag Manager
   @Column({ nullable: true })
   gtm_container_id: string;
 
@@ -32,6 +55,9 @@ export class GeneralSettings extends BaseMemberEntity {
   init_tiktok_id: string;
 
   @Column({ nullable: true, default: false })
+  gtm_enabled: boolean;
+
+  @Column({ nullable: true, default: false })
   google_analytics_enabled: boolean;
 
   @Column({ nullable: true, default: false })
@@ -43,6 +69,7 @@ export class GeneralSettings extends BaseMemberEntity {
   @Column({ nullable: true, default: false })
   init_tiktok_enabled: boolean;
 
+  // Social Media
   @Column({ nullable: true })
   facebook_url: string;
 
@@ -50,13 +77,24 @@ export class GeneralSettings extends BaseMemberEntity {
   instagram_url: string;
 
   @Column({ nullable: true })
-  meta_title: string;
+  twitter_url: string;
 
-  @Column({ nullable: true, type: "text" })
-  meta_description: string;
+  // Email Settings
+  @Column({ nullable: true })
+  smtp_host: string;
 
-  @Column({ nullable: true, type: "text" })
-  meta_keywords: string;
+  @Column({ nullable: true })
+  smtp_port: number;
+
+  @Column({ nullable: true })
+  smtp_email: string;
+
+  @Column({ nullable: true })
+  smtp_password: string;
+
+  // Maintenance Mode
+  @Column({ nullable: true, default: false })
+  maintenance_mode: boolean;
 
   @ManyToOne(() => User, { onDelete: "CASCADE" })
   createdBy: User;

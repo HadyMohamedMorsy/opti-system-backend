@@ -68,7 +68,7 @@ export class UnifiedDataService {
     try {
       const settings = await this.generalSettingsService.findAll({});
       if (settings && settings.data && settings.data.length > 0) {
-        return { content: settings.data[0] };
+        return { content: settings.data.map(item => ({ ...item, language_id: item.language.id })) };
       }
       return { content: null };
     } catch {
