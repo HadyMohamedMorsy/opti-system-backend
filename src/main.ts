@@ -32,6 +32,6 @@ async function bootstrap() {
       transform: true,
     }),
   );
-  await app.listen(3002);
+  await app.listen(3001);
 }
 bootstrap();
